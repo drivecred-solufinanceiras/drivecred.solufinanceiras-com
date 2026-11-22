@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DriveCrédito - Início</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow-primary: #FFCB05;
+      --dark-bg: #0F172A;
+      --dark-card: #151D2A;
+      --white: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-gray: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #E2E8F0;
+      color: var(--text-dark);
+      padding-bottom: 85px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      max-width: 480px;
+      background-color: #F8FAFC;
+      min-height: 100vh;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-img {
+      object-fit: contain;
+      display: inline-block;
+    }
+
+    /* --- HERO --- */
+    .hero-container {
+      position: relative;
+      background-color: var(--dark-bg);
+      padding: 18px 20px 45px;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      right: -20px;
+      top: 30px;
+      height: 100%;
+      width: 65%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #0F172A 45%, rgba(15, 23, 42, 0.75) 70%, rgba(15, 23, 42, 0.2) 100%);
+      z-index: 2;
+    }
+
+    .hero-content-wrap {
+      position: relative;
+      z-index: 3;
+    }
+
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+      color: var(--yellow-primary);
+    }
+
+    .sub-brand {
+      font-size: 11.5px;
+      color: #94A3B8;
+      line-height: 1.3;
+      margin-bottom: 22px;
+      max-width: 60%;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      max-width: 65%;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      color: var(--yellow-primary);
+    }
+
+    .hero-desc {
+      font-size: 12px;
+      color: #CBD5E1;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      max-width: 55%;
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge-btn-img {
+      height: 36px;
+      border-radius: 6px;
+    }
+
+    .hero-tag-yellow {
+      position: absolute;
+      bottom: 12px;
+      right: -10px;
+      z-index: 4;
+      background-color: var(--yellow-primary);
+      color: var(--dark-bg);
+      padding: 8px 16px 8px 14px;
+      border-radius: 10px 0 0 10px;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: -2px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* --- CONTEÚDO --- */
+    .main-body {
+      padding: 0 14px 20px;
+    }
+
+    .card-limite {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: -20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .limite-flex {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon-wallet {
+      width: 52px;
+      height: 52px;
+      background: #EFF6FF;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .limite-info .lbl {
+      font-size: 12px;
+      color: var(--text-gray);
+      font-weight: 500;
+    }
+
+    .limite-info .val {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 1px 0;
+    }
+
+    .limite-info .sub {
+      font-size: 10.5px;
+      color: var(--text-gray);
+      font-weight: 600;
+    }
+
+    .arrow-next {
+      font-size: 18px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+
+    .benefits-wrapper {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+
+    .benefit-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 4px;
+      border-right: 1px solid #F1F5F9;
+    }
+
+    .benefit-card:last-child {
+      border-right: none;
+    }
+
+    .b-icon {
+      width: 40px;
+      height: 40px;
+      background: #FEF9C3;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .benefit-card h4 {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .benefit-card p {
+      font-size: 9px;
+      color: var(--text-gray);
+    }
+
+    /* --- CHAMADA SIMULADOR --- */
+    .card-simulador-cta {
+      background: var(--dark-card);
+      border-radius: 16px;
+      padding: 18px 16px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .sim-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sim-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--yellow-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sim-title h3 {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .sim-title p {
+      font-size: 11.5px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    .btn-action {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--yellow-primary);
+      border-radius: 10px;
+      color: var(--dark-bg);
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* --- POR QUE ESCOLHER --- */
+    .card-why {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .card-why h3 {
+      font-size: 13.5px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .why-check {
+      width: 18px;
+      height: 18px;
+      background-color: var(--yellow-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .why-item p {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    /* --- NAVBAR --- */
+    .bottom-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 68px;
+      background: var(--white);
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text-gray);
+      font-size: 9.5px;
+      font-weight: 700;
+      flex: 1;
+      gap: 3px;
+    }
+
+    .nav-btn.active {
+      color: #D97706;
+    }
+
+    .nav-btn.center-btn {
+      position: relative;
+      top: -14px;
+    }
+
+    .center-icon-bg {
+      width: 50px;
+      height: 50px;
+      background-color: var(--yellow-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 3px solid var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- Header Hero -->
+    <div class="hero-container">
+      <img src="img/img_logo.png" alt="Motorista" class="hero-bg-img">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content-wrap">
+        <div class="logo-brand">
+          <img src="img/ic_volante.png" alt="Volante" class="icon-img" width="32" height="32">
+          <div class="logo-text">Drive<span>Crédito</span></div>
+        </div>
+
+        <div class="sub-brand">
+          Seu trabalho move sonhos.<br>Nós ajudamos você a ir mais longe.
+        </div>
+
+        <h1 class="hero-title">Crédito rápido e seguro para <span>motoristas de app.</span></h1>
+        <p class="hero-desc">Uber e 99POP são a sua fonte de renda. Agora, podem ser a chave para o seu próximo passo.</p>
+        
+        <div class="app-badges">
+          <img src="img/ic_uber.png" alt="Uber" class="badge-btn-img">
+          <img src="img/ic_pop99.png" alt="99POP" class="badge-btn-img">
+        </div>
+      </div>
+
+      <div class="hero-tag-yellow">
+        <img src="img/ic_escudo.png" alt="Seguro" class="icon-img" width="16" height="16">
+        Processo 100% digital, sem burocracia.
+      </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-body">
+
+      <!-- Limite Disponível -->
+      <a href="simulacao.html" class="card-limite">
+        <div class="limite-flex">
+          <div class="icon-wallet">
+            <img src="img/ic_carteiras.png" alt="Carteira" class="icon-img" width="30" height="30">
+          </div>
+          <div class="limite-info">
+            <div class="lbl">Seu limite disponível</div>
+            <div class="val">R$ 2.500,00</div>
+            <div class="sub">Liberação rápida • Sem consulta ao SPC/Serasa</div>
+          </div>
+        </div>
+        <div class="arrow-next">❯</div>
+      </a>
+
+      <!-- Benefícios -->
+      <div class="benefits-wrapper">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="b-icon">
+              <img src="img/ic_raio.png" alt="Rápido" class="icon-img" width="20" height="20">
+            </div>
+            <h4>Liberação Rápida</h4>
+            <p>Em até 24h</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="b-icon">
+              <img src="img/ic_contrato.png" alt="Digital" class="icon-img" width="20" height="20">
+            </div>
+            <h4>100% Digital</h4>
+            <p>Sem papelada</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="b-icon">
+              <img src="img/ic_escudo.png" alt="Confiável" class="icon-img" width="20" height="20">
+            </div>
+            <h4>Seguro e Confiável</h4>
+            <p>Seus dados protegidos</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="b-icon">
+              <img src="img/ic_calendario.png" alt="Prazos" class="icon-img" width="20" height="20">
+            </div>
+            <h4>Pagamento Diário</h4>
+            <p>26 Dias</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chamada para Simulação -->
+      <div class="card-simulador-cta">
+        <div class="sim-head">
+          <div class="sim-icon">
+            <img src="img/ic_calc.png" alt="Calculadora" class="icon-img" width="22" height="22">
+          </div>
+          <div class="sim-title">
+            <h3>Simule seu empréstimo</h3>
+            <p>Valores até R$ 2.500,00 com parcelas diárias em 26 dias.</p>
+          </div>
+        </div>
+
+        <a href="simulacao.html" class="btn-action">
+          <img src="img/ic_calc.png" alt="Simular" class="icon-img" width="18" height="18">
+          Simular agora →
+        </a>
+      </div>
+
+      <!-- Por que escolher -->
+      <div class="card-why">
+        <h3>Por que escolher a DriveCrédito?</h3>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-check">
+              <img src="img/ic_check.png" alt="Check" class="icon-img" width="12" height="12">
+            </div>
+            <p>Atende motoristas de Uber e 99POP</p>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <img src="img/ic_check.png" alt="Check" class="icon-img" width="12" height="12">
+            </div>
+            <p>Taxas justas e transparentes</p>
+          </div>
+          <div class="why-item">
+            <div class="why-check">
+              <img src="img/ic_check.png" alt="Check" class="icon-img" width="12" height="12">
+            </div>
+            <p>Suporte especializado no seu WhatsApp</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Barra Inferior -->
+    <nav class="bottom-navbar">
+      <a href="home.html" class="nav-btn active">
+        <img src="img/ic_volante.png" alt="Início" class="icon-img" width="20" height="20">
+        <span>Início</span>
+      </a>
+
+      <a href="#contratos" class="nav-btn">
+        <img src="img/ic_contrato.png" alt="Contratos" class="icon-img" width="20" height="20">
+        <span>Meus Contratos</span>
+      </a>
+
+      <a href="simulacao.html" class="nav-btn center-btn">
+        <div class="center-icon-bg">
+          <img src="img/ic_emprestimo.png" alt="Solicitar" class="icon-img" width="26" height="26">
+        </div>
+        <span>Solicitar Crédito</span>
+      </a>
+
+      <a href="#suporte" class="nav-btn">
+        <img src="img/ic_suporte.png" alt="Suporte" class="icon-img" width="20" height="20">
+        <span>Suporte</span>
+      </a>
+
+      <a href="#perfil" class="nav-btn">
+        <img src="img/ic_perfil.png" alt="Perfil" class="icon-img" width="20" height="20">
+        <span>Perfil</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>
